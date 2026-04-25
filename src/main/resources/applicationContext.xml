@@ -60,5 +60,7 @@
         <property name="addr" value="tiannan"/>
     </bean>
 
+    <import resource="applicationContext-product.xml"/>
+    <import resource="applicationContext-user.xml"/>
 
 </beans>
