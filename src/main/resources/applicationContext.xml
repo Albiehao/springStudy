@@ -10,10 +10,55 @@
 
     <!--<bean id="factory" class="cn.albie.factory.DynamicFactory"/>-->
     <!--<bean id="userDao" factory-bean="factory" factory-method="getUserDao"/>-->
-    <bean id="userDao" class="cn.albie.dao.impl.UserDaoImpl"/>
+<!--    <bean id="userDao" class="cn.albie.dao.impl.UserDaoImpl"/>-->
     <!--<bean id="userService" class="cn.albie.service.Impl.UserServiceImpl">-->
     <!--    <property name="userDao" ref="userDao"/>-->
     <!--</bean>-->
     <bean id="userService" class="cn.albie.service.Impl.UserServiceImpl" p:userDao-ref="userDao"/>
+
+    <!--    <bean id="userService" class="cn.albie.service.Impl.UserServiceImpl">-->
+    <!--        <constructor-arg name="userDao" ref="userDao" />-->
+    <!--    </bean>-->
+
+<!--    <bean id="userDao" class="cn.albie.dao.impl.UserDaoImpl">-->
+<!--        <property name="age" value="18"/>-->
+<!--        <property name="username" value="Albie"/>-->
+<!--    </bean>-->
+
+    <bean id="userDao" class="cn.albie.dao.impl.UserDaoImpl">
+        <property name="strList">
+            <list>
+                <value>aaa</value>
+                <value>bbb</value>
+                <value>ccc</value>
+            </list>
+        </property>
+        <property name="userMap">
+            <map>
+                <entry key="u1" value-ref="user1">
+                </entry>
+                <entry key="u2" value-ref="user1">
+                </entry>
+            </map>
+        </property>
+        <property name="properties">
+            <props>
+                <prop key="p1">v1</prop>
+                <prop key="p2">v2</prop>
+                <prop key="p3">v3</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="user1" class="cn.albie.domain.User">
+        <property name="username" value="Albie"/>
+        <property name="addr" value="luanxinhai"/>
+    </bean>
+
+    <bean id="user2" class="cn.albie.domain.User">
+        <property name="username" value="Alex"/>
+        <property name="addr" value="tiannan"/>
+    </bean>
+
 
 </beans>
